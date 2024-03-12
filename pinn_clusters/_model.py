@@ -30,9 +30,12 @@ class ShiftLayer(Layer):
 
     """
 
-
+    def __init__(self,lx,ux):
+        self._lx=lx
+        self._ux=ux
+        
     def call(self, inputs):
-        return 2.0 * (inputs - lx) / (ux - lx) - 1.0
+        return 2.0 * (inputs - self._lx) / (self._ux - self._lx) - 1.0
 
 
 def create_mlp(layers: List[int], lyscl: List[float], dtype=tf.float64):
@@ -49,7 +52,7 @@ def create_mlp(layers: List[int], lyscl: List[float], dtype=tf.float64):
     """
 
     inputs = Input(shape=(1,), dtype=dtype)
-    shifted = ShiftLayer()(inputs)
+    shifted = ShiftLayer(0,1)(inputs)
     dense = Dense(
         layers[0], activation="tanh", dtype=dtype,
         kernel_initializer=TunableXavierNormal(lyscl[0]))(shifted)

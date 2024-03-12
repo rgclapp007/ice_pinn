@@ -1,6 +1,4 @@
-# set the bounds of the domain
-lx = 0
-ux = 1
+
 
 # Set a whole bunch of parameters
 spy = 60 * 60 * 24 * 365.25
