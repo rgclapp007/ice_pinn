@@ -23,13 +23,14 @@ def data_equations(x, y, neural_net):
     h_pred = nn_forward[..., 1]
     return u_data - u_pred, h_data - h_pred
 
-def inverse_1st_order_equations(    spy = 60 * 60 * 24 * 365.25, rhoi=910,rhow=1028,g=9.81,H0=1.0e3,B0=1.4688e8,n=3,fractional:bool)
+def inverse_1st_order_equations( fractional:bool,   spy = 60 * 60 * 24 * 365.25, rhoi=910,rhow=1028,g=9.81,H0=1.0e3,B0=1.4688e8,n=3)
  
 
     """
     Create a function representing inverse first-order equations for use in a PINN.
 
     Args:
+        fractional (bool): If True, use the fractional form of the equation.
         spy = 60 * 60 * 24 * 365.25
         rhoi = 910.
         rhow = 1028.
@@ -37,7 +38,6 @@ def inverse_1st_order_equations(    spy = 60 * 60 * 24 * 365.25, rhoi=910,rhow=1
         H0 = 1.0e3
         B0 = 1.4688e8
         n = 3
-        fractional (bool): If True, use the fractional form of the equation.
 
     Returns:
         function: A function that calculates the inverse first-order equations.
