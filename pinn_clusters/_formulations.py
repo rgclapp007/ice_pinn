@@ -23,7 +23,8 @@ def data_equations(x, y, neural_net):
     h_pred = nn_forward[..., 1]
     return u_data - u_pred, h_data - h_pred
 
-def inverse_1st_order_equations( fractional:bool,   spy = 60 * 60 * 24 * 365.25, rhoi=910,rhow=1028,g=9.81,H0=1.0e3,B0=1.4688e8,n=3)
+def inverse_1st_order_equations( fractional:bool,   spy = 60 * 60 * 24 * 365.25, 
+                                rhoi=910,rhow=1028,g=9.81,H0=1.0e3,B0=1.4688e8,n=3):
  
 
     """
