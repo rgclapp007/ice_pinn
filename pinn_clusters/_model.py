@@ -31,6 +31,7 @@ class ShiftLayer(Layer):
     """
 
     def __init__(self,lx,ux):
+        super().__init__()
         self._lx=lx
         self._ux=ux
         
